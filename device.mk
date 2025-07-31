@@ -76,4 +76,4 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/android/generic/generic-vendor.mk)
+$(call inherit-product, vendor/amlogic/ohm/ohm-vendor.mk)
