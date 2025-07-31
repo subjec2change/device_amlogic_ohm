@@ -1,0 +1,62 @@
+//
+// Copyright (C) 2025 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// Init scripts
+sh_binary {
+    name: "ddrtest.sh",
+    src: "bin/ddrtest.sh",
+    vendor: true,
+}
+
+// Init configuration files
+prebuilt_etc {
+    name: "init.amlogic.bluetooth.rc",
+    src: "etc/init.amlogic.bluetooth.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.amlogic.board.rc",
+    src: "etc/init.amlogic.board.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.amlogic.media.rc",
+    src: "etc/init.amlogic.media.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.amlogic.rc",
+    src: "etc/init.amlogic.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.amlogic.usb.rc",
+    src: "etc/init.amlogic.usb.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.amlogic.wifi.rc",
+    src: "etc/init.amlogic.wifi.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+// fstab
+prebuilt_etc {
+    name: "fstab.amlogic",
+    src: "etc/fstab.amlogic",
+    vendor: true,
+}
