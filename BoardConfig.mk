@@ -3,6 +3,10 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+# Some temp fix
+BUILD_BROKEN_DUP_RULES := true
+ALLOW_MISSING_DEPENDENCIES:=true
+TEMPORARY_DISABLE_PATH_RESTRICTIONS:= true
 
 DEVICE_PATH := device/amlogic/ohm
 
