@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/android/generic
+DEVICE_PATH := device/amlogic/ohm
 
 # A/B
 AB_OTA_UPDATER := true
@@ -95,4 +95,4 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Inherit the proprietary files
-include vendor/android/generic/BoardConfigVendor.mk
+include vendor/amlogic/ohm/BoardConfigVendor.mk

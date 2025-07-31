@@ -11,7 +11,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit from generic device
-$(call inherit-product, device/android/generic/device.mk)
+$(call inherit-product, device/amlogic/ohm/device.mk)
 
 PRODUCT_DEVICE := generic
 PRODUCT_NAME := lineage_generic
