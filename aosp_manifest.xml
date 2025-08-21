@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     AOSP Repo Manifest for Android TV 12 build
+     with Amlogic OHM device tree support
+     
+     To use this manifest:
+     1. repo init -u https://android.googlesource.com/platform/manifest -b android-12.1.0_r27
+     2. Copy this file to .repo/local_manifests/device.xml
+     3. repo sync
+     4. source build/envsetup.sh
+     5. lunch aosp_atv_generic-userdebug
+     6. m -j$(nproc)
+-->
+<manifest>
+  <!-- Add GitHub remote for external repositories -->
+  <remote name="github" 
+          fetch="https://github.com/" />
+  
+  <!-- Remove conflicting AOSP device trees to avoid lunch target conflicts -->
+  <remove-project name="device/generic/car" />
+  <remove-project name="device/generic/mini-emulator-arm64" />
+  <remove-project name="device/generic/mini-emulator-armv7-a-neon" />
+  <remove-project name="device/generic/mini-emulator-x86" />
+  <remove-project name="device/generic/mini-emulator-x86_64" />
+  <remove-project name="device/generic/uml" />
+  
+  <!-- Amlogic device tree -->
+  <project path="device/amlogic/ohm" 
+           name="subjec2change/device_amlogic_ohm" 
+           remote="github" 
+           revision="master" />
+  
+  <!-- Vendor blobs for Amlogic OHM -->
+  <project path="vendor/amlogic/ohm" 
+           name="subjec2change/vendor_amlogic_ohm" 
+           remote="github" 
+           revision="master" 
+           clone-depth="1" />
+  
+  <!-- Generic Android kernel for ARM devices -->
+  <project path="kernel/android/generic" 
+           name="platform/kernel/common" 
+           revision="android12-5.10" 
+           clone-depth="1" />
+  
+  <!-- Android TV specific repositories -->
+  <project path="packages/apps/TV" 
+           name="platform/packages/apps/TV" 
+           revision="android-12.1.0_r27" />
+  
+  <project path="packages/apps/TvSettings" 
+           name="platform/packages/apps/TvSettings" 
+           revision="android-12.1.0_r27" />
+           
+  <project path="device/google/atv" 
+           name="platform/device/google/atv" 
+           revision="android-12.1.0_r27" />
+  
+  <!-- Additional hardware abstraction layers needed for TV -->
+  <project path="hardware/interfaces" 
+           name="platform/hardware/interfaces" 
+           revision="android-12.1.0_r27" />
+  
+  <!-- DRM and media codecs -->
+  <project path="frameworks/av" 
+           name="platform/frameworks/av" 
+           revision="android-12.1.0_r27" />
+  
+  <!-- Bootloader and recovery -->
+  <project path="bootable/recovery" 
+           name="platform/bootable/recovery" 
+           revision="android-12.1.0_r27" />
+  
+  <!-- Build system -->
+  <project path="build/make" 
+           name="platform/build" 
+           revision="android-12.1.0_r27" 
+           groups="pdk,tradefed">
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  
+  <!-- Soong build system -->
+  <project path="build/soong" 
+           name="platform/build/soong" 
+           revision="android-12.1.0_r27" 
+           groups="pdk,tradefed" />
+
+</manifest>
