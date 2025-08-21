@@ -76,4 +76,5 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/amlogic/ohm/ohm-vendor.mk)
+# Note: For AOSP builds, ensure vendor/amlogic/ohm exists with proper vendor blobs
+# $(call inherit-product, vendor/amlogic/ohm/ohm-vendor.mk)
